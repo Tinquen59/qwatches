@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "MateSC";
+  src: url("../fonts/MateSC-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "MavenPro";
+  src: url("../fonts/MavenPro-VariableFont_wght.ttf") format("truetype supports variations"), url("../fonts/MavenPro-VariableFont_wght.ttf") format("truetype-variations");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1, h2 {
+  font-family: "MateSC";
+}
+
+h1 {
+  font-size: clamp(26px, 4.444vw, 80px);
+}
+
+h2 {
+  font-size: clamp(24px, 2.778vw, 50px);
+}
+
+p, a, span, div {
+  font-size: clamp(12px, 1.389vw, 25px);
+}
+
+a {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+body {
+  letter-spacing: .1rem;
+}
+/*# sourceMappingURL=style.css.map */
