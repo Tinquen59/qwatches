@@ -8,6 +8,12 @@
   src: url("../fonts/MavenPro-VariableFont_wght.ttf") format("truetype supports variations"), url("../fonts/MavenPro-VariableFont_wght.ttf") format("truetype-variations");
 }
 
+.qa-Homepage__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -18,16 +24,26 @@ h1, h2 {
   font-family: "MateSC";
 }
 
+p, a, span, div, button {
+  font-family: "MavenPro";
+}
+
 h1 {
   font-size: clamp(26px, 4.444vw, 80px);
+  color: #F5FBFF;
 }
 
 h2 {
   font-size: clamp(24px, 2.778vw, 50px);
+  color: #263973;
 }
 
 p, a, span, div {
   font-size: clamp(12px, 1.389vw, 25px);
+}
+
+button {
+  font-size: clamp(14px, 1.111vw, 20px);
 }
 
 a {
@@ -40,5 +56,77 @@ ul li {
 
 body {
   letter-spacing: .1rem;
+  background-color: #F5FBFF;
+}
+
+.qa-Btn {
+  color: #F5FBFF;
+  padding: 1.1rem 1.5rem;
+}
+
+.qa-Btn--link {
+  background-color: #17BF71;
+  border-radius: 70px;
+}
+
+@media screen and (max-width: 1100px) {
+  .qa-Btn {
+    padding: .8rem 1.7rem;
+  }
+}
+
+.qa-HeroHomepage__container {
+  height: 100vh;
+  background-image: url("../images/hero_homepage.jpg");
+  position: relative;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.qa-HeroHomepage__container--title {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+}
+
+.qa-Homepage__container {
+  flex-direction: column;
+}
+
+.qa-Homepage__container h2 {
+  margin-top: 231px;
+}
+
+.qa-Homepage__container p {
+  margin-top: 70px;
+  margin-bottom: 70px;
+  width: 50%;
+  text-align: center;
+}
+
+@media screen and (max-width: 1100px) {
+  .qa-Homepage__container h2 {
+    margin-top: 100px;
+  }
+  .qa-Homepage__container p {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 67%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .qa-Homepage__container h2 {
+    margin-top: 100px;
+  }
+  .qa-Homepage__container p {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 86%;
+    text-align: center;
+  }
 }
 /*# sourceMappingURL=style.css.map */

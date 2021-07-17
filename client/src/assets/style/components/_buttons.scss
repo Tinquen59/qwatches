@@ -1,0 +1,15 @@
+.qa-Btn {
+    color: $secondary-color;
+    padding: 1.1rem 1.5rem;
+
+    &--link {
+        background-color: $third-color;
+        border-radius: $br-rad-l;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .qa-Btn {
+        padding: .8rem 1.7rem;
+    }
+}
