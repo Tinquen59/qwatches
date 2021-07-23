@@ -1,3 +1,12 @@
+@mixin line-burger-menu ($width: 100%) {
+    position: absolute;
+    width: $width;
+    height: 4px;
+    background-color: $secondary-color;
+    border-radius: $br-rad-m;
+    transition: transform .4s ease-in-out;
+}
+
 @mixin hero-properties {
     position: relative;
     background-repeat: no-repeat;

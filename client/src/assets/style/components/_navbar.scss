@@ -1,0 +1,137 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5% 4.4%;
+    background-color: $primary-color;
+    z-index: 100;
+
+    & .qa-LogoQwatches {
+        position: relative;
+        width: 104px;
+        height: 84px;
+        z-index: 100;
+    }
+}
+
+
+.qa-Navigation__container {
+    
+    & .qa-Item__container {
+        display: flex;
+
+        &--link {
+            display: block;
+            position: relative;
+            text-align: center;
+            color: $secondary-color;
+            font-family: "MateSC";
+            font-size: clamp(24px, 1.667vw, 30px);
+            white-space: nowrap; // don't wrap link
+            &:not(:last-child) {
+                margin-right: 50px;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: $secondary-color;
+                transform-origin: left;
+                transform: scaleX(0);
+                transition: transform .2s ease-in-out;
+            }
+            &:hover::after {
+                transform: scaleX(1);
+            }
+        }
+        & .qa-Link--active.qa-Item__container--link::after {
+            transform: scaleX(1);
+        }
+    }
+
+    & .qa-BurgerMenu {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .qa-Navigation__container {
+        & .qa-Item__container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            background-color: $primary-color;
+            z-index: 99;
+        
+            &--link {
+                &:not(:last-child) {
+                    margin-right: 0;
+                    margin-bottom: 3%;
+                }
+            }
+        }
+
+        & .qa-BurgerMenu {
+            display: block;
+            position: relative;
+            width: 42px;
+            height: 24px;
+            z-index: 100;
+            cursor: pointer;
+
+            & span {
+                display: block;
+                @include line-burger-menu;
+                top: 50%;
+                transform: translateY(-50%);
+                &::before, &::after {
+                    content: "";
+                    left: 50%;
+                    @include line-burger-menu();
+                }
+                &::before {
+                    transform: translate(-50%, -10px) scaleX(.7);
+                }
+                &::after {
+                    transform: translate(-50%, 10px) scaleX(.7);
+                }
+            }
+            &:hover span {
+                &::before {
+                    transform: translate(-50%, -10px) scaleX(1);
+                }
+                &::after {
+                    transform: translate(-50%, 10px) scaleX(1);
+                }
+            }
+
+            // transforme le menu burger en croix
+            &.qa-BurgerMenu--active {
+                & span {
+                    background-color: transparent;
+                    &::before {
+                        transform: translateX(-50%) scaleX(1) rotate(45deg);
+                    }
+                    &::after {
+                        transform: translateX(-50%) scaleX(1) rotate(-45deg);
+                    }
+                }
+                &:hover span::before, &:hover span::after {
+                    transform: translate(-50%, 0);
+                }
+            }
+        }
+    }
+}
