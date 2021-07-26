@@ -102,6 +102,9 @@ footer .qa-Copyright {
   }
   footer .qa-Network__container {
     margin-bottom: 20px;
+  }
+}
+
 header {
   position: fixed;
   top: 0;
