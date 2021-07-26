@@ -59,6 +59,52 @@ body {
   background-color: #F5FBFF;
 }
 
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 2.1% 3.5%;
+  background-color: #263973;
+  margin-top: 231px;
+}
+
+footer * {
+  color: #F5FBFF;
+}
+
+footer .qa-Copyright {
+  font-size: clamp(12px, 1.111vw, 20px);
+  margin: auto 0;
+}
+
+.qa-Network__container {
+  display: flex;
+}
+
+.qa-Network__container--icon {
+  width: 30.5px !important;
+  height: 30.5px;
+  cursor: pointer;
+}
+
+.qa-Network__container--icon:not(:last-child) {
+  margin-right: 29.5px;
+}
+
+.qa-Network__container--icon * {
+  color: #F5FBFF;
+}
+
+@media screen and (max-width: 500px) {
+  footer {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+  footer .qa-Network__container {
+    margin-bottom: 20px;
+  }
+}
+
 .qa-Btn {
   color: #F5FBFF;
   padding: 1.1rem 1.5rem;
