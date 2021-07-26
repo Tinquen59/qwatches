@@ -1,0 +1,45 @@
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 2.1% 3.5%;
+    background-color: $primary-color;
+    margin-top: $m-l;
+
+    & * {
+        color: $secondary-color;
+    }
+
+    & .qa-Copyright {
+        font-size: clamp(12px, 1.111vw, 20px);
+        margin: auto 0;
+    }
+}
+
+.qa-Network__container {
+    display: flex;
+
+    &--icon {
+        width: 30.5px !important;
+        height: 30.5px;
+        cursor: pointer;
+        &:not(:last-child) {
+            margin-right: 29.5px;
+        }
+        & * {
+            color: $secondary-color;
+        }
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    footer {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+
+        & .qa-Network__container {
+            margin-bottom: 20px;
+        }
+    }
+}
