@@ -24,7 +24,7 @@ h1, h2 {
   font-family: "MateSC";
 }
 
-p, a, span, div, button {
+p, a, span, div, button, input, input::placeholder {
   font-family: "MavenPro";
 }
 
@@ -52,6 +52,22 @@ a {
 
 ul li {
   list-style: none;
+}
+
+.qa-BasicHero__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 75vh;
+}
+
+.qa-BasicHero__container--title {
+  text-align: center;
+  width: 70%;
 }
 
 body {
@@ -250,6 +266,21 @@ header .qa-LogoQwatches {
   border-radius: 70px;
 }
 
+.qa-Btn--search {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.qa-Btn--search .qa-SearchBar__container--icon {
+  width: clamp(25px, 2.611vw, 47px);
+  height: clamp(25px, 2.611vw, 47px);
+}
+
+.qa-Btn--search .qa-SearchBar__container--icon * {
+  color: #F5FBFF;
+}
+
 @media screen and (max-width: 1100px) {
   .qa-Btn {
     padding: .8rem 1.7rem;
@@ -308,6 +339,154 @@ header .qa-LogoQwatches {
     margin-bottom: 40px;
     width: 86%;
     text-align: center;
+  }
+}
+
+.qa-BasicHero__container--bgi {
+  background-image: url("../images/hero_voirMontres.jpg");
+}
+
+.qa-SeeWatches__container {
+  margin: 231px 100px 0;
+}
+
+.qa-SearchBar__container {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  padding: .8% 4.9%;
+  background-color: #263973;
+  border-radius: 70px;
+}
+
+.qa-SearchBar__container--input {
+  width: clamp(155px, 21.556vw, 388px);
+  margin-right: 4%;
+  border: none;
+  border-bottom: 1px solid #F5FBFF;
+  color: #F5FBFF;
+  background-color: #263973;
+  font-size: clamp(14px, 1.944vw, 35px);
+  outline: #F5FBFF;
+}
+
+.qa-SearchBar__container--input::placeholder {
+  color: #F5FBFF;
+}
+
+.qa-AllWatches__container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 100px;
+}
+
+.qa-AllWatches__container .qa-CardWatch__container {
+  width: 20.5%;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(38, 57, 115, 0.35);
+  margin-top: 100px;
+  cursor: pointer;
+}
+
+.qa-AllWatches__container .qa-CardWatch__container:nth-child(1) {
+  margin-top: 0;
+}
+
+.qa-AllWatches__container .qa-CardWatch__container:nth-child(2) {
+  margin-top: 0;
+}
+
+.qa-AllWatches__container .qa-CardWatch__container:nth-child(3) {
+  margin-top: 0;
+}
+
+.qa-AllWatches__container .qa-CardWatch__container:nth-child(4) {
+  margin-top: 0;
+}
+
+.qa-AllWatches__container .qa-CardWatch__container:not(:nth-child(4n)) {
+  margin-right: 6%;
+}
+
+.qa-AllWatches__container .qa-CardWatch__image {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  width: 100%;
+  height: 203px;
+}
+
+.qa-AllWatches__container .qa-CardWatch__image--img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.qa-AllWatches__container .qa-CardWatch__body {
+  padding: 16px;
+}
+
+.qa-AllWatches__container .qa-CardWatch__body--model {
+  font-family: "MateSC";
+  font-size: clamp(18px, 1.222vw, 22px);
+  margin-bottom: 0.75em;
+}
+
+.qa-AllWatches__container .qa-CardWatch__body--mark {
+  font-size: clamp(14px, 0.944vw, 17px);
+}
+
+@media screen and (max-width: 1300px) {
+  .qa-AllWatches__container .qa-CardWatch__container {
+    width: 30%;
+  }
+  .qa-AllWatches__container .qa-CardWatch__container:nth-child(3n) {
+    margin-right: 0;
+  }
+  .qa-AllWatches__container .qa-CardWatch__container:nth-child(4) {
+    margin-top: 100px;
+  }
+  .qa-AllWatches__container .qa-CardWatch__container:not(:nth-child(3n)) {
+    margin-right: 5%;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .qa-AllWatches__container .qa-CardWatch__container {
+    width: 47.5%;
+  }
+  .qa-AllWatches__container .qa-CardWatch__container:nth-child(2n) {
+    margin-right: 0;
+  }
+  .qa-AllWatches__container .qa-CardWatch__container:nth-child(3) {
+    margin-top: 100px;
+  }
+  .qa-AllWatches__container .qa-CardWatch__container:not(:nth-child(2n)) {
+    margin-right: 5%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .qa-SeeWatches__container {
+    margin-left: 31px;
+    margin-right: 31px;
+  }
+  .qa-AllWatches__container {
+    margin-top: 50px;
+  }
+  .qa-AllWatches__container .qa-CardWatch__container {
+    width: 100%;
+    margin-right: 0;
+  }
+  .qa-AllWatches__container .qa-CardWatch__container:nth-child(1) {
+    margin-top: 50px;
+  }
+  .qa-AllWatches__container .qa-CardWatch__container:nth-child(2) {
+    margin-top: 50px;
+  }
+  .qa-AllWatches__container .qa-CardWatch__container:nth-child(2n+1) {
+    margin-right: 0;
   }
 }
 /*# sourceMappingURL=style.css.map */
