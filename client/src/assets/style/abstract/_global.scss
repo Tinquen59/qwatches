@@ -8,7 +8,7 @@ h1, h2 {
     font-family: "MateSC";
 }
 
-p, a, span, div, button {
+p, a, span, div, button, input, input::placeholder {
     font-family: "MavenPro";
 }
 
@@ -36,4 +36,20 @@ a {
 
 ul li {
     list-style: none;
+}
+
+
+
+// global style
+.qa-BasicHero__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include hero-properties;
+    height: 75vh;
+    
+    &--title {
+        text-align: center;
+        width: 70%;
+    }
 }

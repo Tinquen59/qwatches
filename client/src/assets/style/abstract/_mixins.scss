@@ -13,3 +13,10 @@
     background-attachment: fixed;
     background-size: cover;
 }
+
+@mixin card ($width, $border-radius, $bgc) {
+    width: $width;
+    border-radius: $border-radius;
+    background-color: $bgc;
+    box-shadow: 0 3px 6px $shadow-color;
+}

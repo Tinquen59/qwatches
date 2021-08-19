@@ -1,0 +1,154 @@
+.qa-BasicHero__container--bgi {
+    background-image: url("../images/hero_voirMontres.jpg");
+}
+
+.qa-SeeWatches__container {
+    margin: $m-l $m-s 0;
+}
+
+.qa-SearchBar__container {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    // padding: 1rem 5.1rem;
+    padding: .8% 4.9%;
+    background-color: $primary-color;
+    border-radius: $br-rad-l;
+
+    &--input {
+        width: clamp(155px, 21.556vw, 388px);
+        margin-right: 4%;
+        border: none;
+        border-bottom: 1px solid $secondary-color;
+        color: $secondary-color;
+        background-color: $primary-color;
+        font-size: clamp(14px, 1.944vw, 35px);
+        outline: $secondary-color;
+        &::placeholder {
+            color: $secondary-color;
+        }
+    }
+}
+
+.qa-AllWatches__container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: $m-s;
+
+    & .qa-CardWatch {
+        &__container {
+            @include card(20.5%, $br-rad-m, #fff);
+            margin-top: $m-s;
+            cursor: pointer;
+            // &:not(:nth-child(1)), &:not(:nth-child(2)), &:not(:nth-child(3)), &:not(:nth-child(4)) {
+            //     margin-top: $m-s;
+            //     background-color: red;
+            // }
+            &:nth-child(1) {
+                margin-top: 0;
+            }
+            &:nth-child(2) {
+                margin-top: 0;
+            }
+            &:nth-child(3) {
+                margin-top: 0;
+            }
+            &:nth-child(4) {
+                margin-top: 0;
+            }
+            &:not(:nth-child(4n)) {
+                margin-right: 6%;
+            }
+        }
+        
+        &__image {
+            border-top-left-radius: $br-rad-m;
+            border-top-right-radius: $br-rad-m;
+            width: 100%;
+            height: 203px;
+
+            &--img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: inherit;
+            }
+        }
+
+        &__body {
+            padding: 16px;
+            
+            &--model {
+                font-family: "MateSC";
+                font-size: clamp(18px, 1.222vw, 22px);
+                margin-bottom: 0.75em;
+            }
+            &--mark {
+                font-size: clamp(14px, 0.944vw, 17px);
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1300px) {
+    .qa-AllWatches__container .qa-CardWatch {
+        &__container {
+            width: 30%;
+            &:nth-child(3n) {
+                margin-right: 0;
+            }
+            &:nth-child(4) {
+                margin-top: $m-s;
+            }
+            &:not(:nth-child(3n)) {
+                margin-right: 5%;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 950px) {
+    .qa-AllWatches__container .qa-CardWatch {
+        &__container {
+            width: 47.5%;
+            &:nth-child(2n) {
+                margin-right: 0;
+            }
+            &:nth-child(3) {
+                margin-top: $m-s;
+            }
+            &:not(:nth-child(2n)) {
+                margin-right: 5%;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 650px) {
+    .qa-SeeWatches__container {
+        margin-left: $my-s;
+        margin-right: $my-s;
+    }
+
+    .qa-AllWatches__container {
+        margin-top: $m-xs;
+        .qa-CardWatch {
+            &__container {
+                width: 100%;
+                margin-right: 0;
+                &:nth-child(1) {
+                    margin-top: $m-xs;
+                }
+                &:nth-child(2) {
+                    margin-top: $m-xs;
+                }
+                &:nth-child(2n+1) {
+                    margin-right: 0;
+                }
+            }
+        }
+    } 
+}

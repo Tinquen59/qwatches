@@ -6,6 +6,19 @@
         background-color: $third-color;
         border-radius: $br-rad-l;
     }
+
+    &--search {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        & .qa-SearchBar__container--icon {
+            width: clamp(25px, 2.611vw, 47px);
+            height: clamp(25px, 2.611vw, 47px);
+            &  * {
+                color: $secondary-color;
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 1100px) {
