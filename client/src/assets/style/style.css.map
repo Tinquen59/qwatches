@@ -9,6 +9,7 @@
         "abstract/_mixins.scss",
         "abstract/_global.scss",
         "_body.scss",
+        "components/_piedDePage.scss",
         "components/_navbar.scss",
         "components/_buttons.scss",
         "views/_homepage.scss",
