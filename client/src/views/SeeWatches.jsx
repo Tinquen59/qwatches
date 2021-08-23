@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 import CardWatches from "../components/Card/CardWatches";
 
@@ -86,8 +87,10 @@ export default function SeeWatches () {
                 </form>
 
                 <div className="qa-AllWatches__container">
-                    {dataWatches.map((watch, index) => (
-                        <CardWatches watchData={watch} key={index} />
+                    {dataWatches.map((watchData, index) => (
+                        <Link to="/voir-les-montres/test" className="qa-CardWatch__container" key={index}>
+                            <CardWatches watchData={watchData} />
+                        </Link>
                     ))}
                 </div>
             </section>

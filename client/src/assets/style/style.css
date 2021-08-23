@@ -20,7 +20,7 @@
   box-sizing: border-box;
 }
 
-h1, h2 {
+h1, h2, h3 {
   font-family: "MateSC";
 }
 
@@ -35,6 +35,11 @@ h1 {
 
 h2 {
   font-size: clamp(24px, 2.778vw, 50px);
+  color: #263973;
+}
+
+h3 {
+  font-size: clamp(18px, 1.944vw, 35px);
   color: #263973;
 }
 
@@ -488,5 +493,43 @@ header .qa-LogoQwatches {
   .qa-AllWatches__container .qa-CardWatch__container:nth-child(2n+1) {
     margin-right: 0;
   }
+}
+
+.qa-WatchInformation__container {
+  margin: 231px 110px;
+}
+
+.qa-CardDescription__container {
+  width: 100%;
+  border-radius: 70px;
+  background-color: #F5FBFF;
+  box-shadow: 0 3px 6px rgba(38, 57, 115, 0.35);
+  margin-top: 110px;
+  box-shadow: 0 3px 6px rgba(38, 57, 115, 0.35);
+}
+
+.qa-CardDescription__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  padding: 1.5% 3.5%;
+  box-shadow: 0 3px 6px rgba(38, 57, 115, 0.35);
+}
+
+.qa-CardDescription__header--model {
+  color: #263973;
+}
+
+.qa-CardDescription__body {
+  padding: 0 3.5% 1.5%;
+}
+
+.qa-CardDescription__body--description {
+  width: 82.5%;
+  text-align: center;
+  margin: 110px auto;
 }
 /*# sourceMappingURL=style.css.map */

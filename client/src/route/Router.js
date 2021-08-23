@@ -1,5 +1,6 @@
 import Homepage from "../views/Homepage";
 import SeeWatches from "../views/SeeWatches";
+import WatchInformation from "../views/WatchInformation";
 import AddWatch from "../views/AddWatch";
 import Account from "../views/Account";
 
@@ -24,8 +25,11 @@ export default () => {
             <Route path="/Accueil">
                 <Homepage />
             </Route>
-            <Route path="/Voir-les-montres">
+            <Route exact path="/Voir-les-montres">
                 <SeeWatches />
+            </Route>
+            <Route path="/voir-les-montres/test">
+                <WatchInformation />
             </Route>
             <Route path="/Ajouter-une-montre">
                 <AddWatch />

@@ -1,0 +1,33 @@
+.qa-WatchInformation__container {
+    margin: $m-l $m-m;
+}
+
+.qa-CardDescription {
+    &__container {
+        @include card(100%, $br-rad-l, $secondary-color);
+        margin-top: $m-m;
+        box-shadow: 0 3px 6px $shadow-color;
+    }
+
+    &__header {
+        @include flex-center;
+        flex-direction: column;
+        border-top-left-radius: inherit;
+        border-top-right-radius: inherit;
+        padding: 1.5% 3.5%;
+        box-shadow: 0 3px 6px $shadow-color;
+
+        &--model {
+            color: $primary-color;
+        }
+    }
+
+    &__body {
+        padding: 0 3.5% 1.5%;
+        &--description {
+            width: 82.5%;
+            text-align: center;
+            margin: $m-m auto;
+        }
+    }
+}
