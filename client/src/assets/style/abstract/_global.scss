@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-h1, h2 {
+h1, h2, h3 {
     font-family: "MateSC";
 }
 
@@ -19,6 +19,11 @@ h1 {
 
 h2 {
     font-size: clamp(24px, 2.778vw, 50px);
+    color: $primary-color;
+}
+
+h3 {
+    font-size: clamp(18px, 1.944vw, 35px);
     color: $primary-color;
 }
 
