@@ -1,0 +1,44 @@
+.qa-BasicHero__container--addWatchBgi {
+    background-image: url("../images/hero_ajouterMontre.jpg");
+}
+
+.qa-AddWatch__container {
+    margin: $m-l 15.6% 0;
+
+    &--subTitle {
+        text-align: center;
+    }
+}
+
+.qa-NewWatch {
+    &__container {
+        margin-top: $m-m;
+
+        &--requiredField {
+            text-align: right;
+            font-variation-settings: "wght" 700;
+            font-style: italic;
+            margin-top: $m-m;
+        }
+    }
+
+    &__group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        & .qa-Form__group{
+            &:nth-child(1) {
+                margin-top: 0;
+            }
+            &:nth-child(2) {
+                margin-top: 0;
+            }
+        }
+    }
+
+    &__submitForm {
+        margin-top: $m-m;
+        text-align: center;
+    }
+}

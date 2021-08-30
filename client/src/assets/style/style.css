@@ -24,7 +24,7 @@ h1, h2, h3 {
   font-family: "MateSC";
 }
 
-p, a, span, div, button, input, input::placeholder {
+p, a, span, div, button, input, input::placeholder, textarea {
   font-family: "MavenPro";
 }
 
@@ -286,10 +286,62 @@ header .qa-LogoQwatches {
   color: #F5FBFF;
 }
 
+.qa-Btn--sendForm {
+  background: #17BF71;
+  background-image: linear-gradient(45deg, #263973 0%, #17BF71 100%);
+  border: none;
+  border-radius: 70px;
+  font-size: clamp(14px, 1.389vw, 25px);
+  padding: .7em 2.9em;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1100px) {
   .qa-Btn {
     padding: .8rem 1.7rem;
   }
+}
+
+.qa-Form__group {
+  display: flex;
+  flex-direction: column;
+  width: 36%;
+  margin-top: 110px;
+}
+
+.qa-Form__group-L {
+  width: 60%;
+}
+
+.qa-Form__group--text, .qa-Form__group--input, .qa-Form__group--textarea {
+  font-size: clamp(14px, 1.389vw, 25px);
+}
+
+.qa-Form__group--input {
+  padding: 1em 1.7em;
+  border: 1px solid #000;
+  border-radius: 20px;
+  margin-top: 31px;
+  outline: none;
+}
+
+.qa-Form__group--input:focus {
+  border-color: #263973;
+  color: #263973;
+}
+
+.qa-Form__group--textarea {
+  padding: 1em 1.7em;
+  border: 1px solid #000;
+  border-radius: 20px;
+  margin-top: 31px;
+  outline: none;
+  resize: none;
+}
+
+.qa-Form__group--textarea:focus {
+  border-color: #263973;
+  color: #263973;
 }
 
 .qa-HeroHomepage__container {
@@ -347,7 +399,7 @@ header .qa-LogoQwatches {
   }
 }
 
-.qa-BasicHero__container--bgi {
+.qa-BasicHero__container--seeWatchesBgi {
   background-image: url("../images/hero_voirMontres.jpg");
 }
 
@@ -633,5 +685,47 @@ header .qa-LogoQwatches {
   .qa-WatchFeature__group {
     width: 48%;
   }
+}
+
+.qa-BasicHero__container--addWatchBgi {
+  background-image: url("../images/hero_ajouterMontre.jpg");
+}
+
+.qa-AddWatch__container {
+  margin: 231px 15.6% 0;
+}
+
+.qa-AddWatch__container--subTitle {
+  text-align: center;
+}
+
+.qa-NewWatch__container {
+  margin-top: 110px;
+}
+
+.qa-NewWatch__container--requiredField {
+  text-align: right;
+  font-variation-settings: "wght" 700;
+  font-style: italic;
+  margin-top: 110px;
+}
+
+.qa-NewWatch__group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.qa-NewWatch__group .qa-Form__group:nth-child(1) {
+  margin-top: 0;
+}
+
+.qa-NewWatch__group .qa-Form__group:nth-child(2) {
+  margin-top: 0;
+}
+
+.qa-NewWatch__submitForm {
+  margin-top: 110px;
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */
