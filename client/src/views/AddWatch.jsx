@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -8,8 +7,10 @@ import AlertErrorMessage from "../components/alert/AlertErrorMessage";
 import FormGroup from "../components/FormGroup";
 
 
+// accepted format for upload input
 const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png"];
 
+// verification for input
 const schema = yup.object().shape({
     model: yup.string().trim().required(""),
     mark: yup.string().trim().required(),
@@ -29,42 +30,13 @@ const schema = yup.object().shape({
 });
 
 export default function AddWatch () {
-    const {register, handleSubmit, formState: {errors, isSubmitted, isSubmitSuccessful}} = useForm({
+    const {register, handleSubmit, formState: {isSubmitted, isSubmitSuccessful}} = useForm({
         resolver: yupResolver(schema)
     });
-
-    // console.log({isSubmitted, isSubmitSuccessful})
-    // console.log("errors ", errors);
-    // console.log("errors lentgh", errors.length);
-
-    // const [dataNewWatch, setDataNewWatch] = useState({
-    //     model: "",
-    //     mark: "",
-    //     movement: "",
-    //     waterproof: "",
-    //     claspMaterial: "",
-    //     braceletMaterial: "",
-    //     housingMaterial: "",
-    //     claspType: "",
-    //     madeIn: "",
-    //     description: "",
-    //     watchImage: {}
-    // })
-
-    // const handleChange = event => {
-    //     const el = event.target;
-    //     setDataNewWatch({...dataNewWatch, [el.name]: el.value})
-    // }
-
-    // const handleSubmit = event => {
-    //     event.preventDefault();
-    // }
 
     const onSubmit = data => {
         console.log("data useForm ", data);
     };
-
-    // console.log("errors", errors);
 
     return (
         <>
