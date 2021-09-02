@@ -5,20 +5,16 @@ export default function FormGroup (props) {
             {(props.isTextarea !== true) ? (
                 <input
                     type={props.typeInput}
-                    name={props.nameInput}
                     className="qa-Form__group--input"
-                    value={props.valueInput}
                     placeholder={`Ex: ${props.placeholderInput}`}
-                    onChange={props.handleChange}
+                    {...props.register}
                 />
             ) : (
                 <textarea
                     className="qa-Form__group--textarea"
-                    name={props.nameTextarea}
-                    value={props.valueTextarea}
                     placeholder={props.placeholderTextarea}
                     rows="5"
-                    onChange={props.handleChange}
+                    {...props.register}
                 />
             )}
         </label>

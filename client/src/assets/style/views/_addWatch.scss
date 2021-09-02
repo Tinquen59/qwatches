@@ -42,3 +42,32 @@
         text-align: center;
     }
 }
+
+
+@media screen and (max-width: 700px) {
+    .qa-AddWatch__container {
+        margin-top: $m-s;
+    }
+
+    .qa-NewWatch {
+        &__container {
+            margin-top: $m-xs;
+    
+            &--requiredField {
+                text-align: right;
+                font-variation-settings: "wght" 700;
+                font-style: italic;
+                margin-top: $m-xs;
+            }
+        }
+    
+        &__group .qa-Form__group:nth-child(2) {
+            margin-top: $m-xs;
+        }
+    
+        &__submitForm {
+            margin-top: $m-xs;
+            text-align: center;
+        }
+    }
+}

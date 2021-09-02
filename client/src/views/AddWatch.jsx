@@ -1,25 +1,70 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+import AlertSuccessMessage from "../components/alert/AlertSuccessMessage";
+import AlertErrorMessage from "../components/alert/AlertErrorMessage";
 import FormGroup from "../components/FormGroup";
 
+
+const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png"];
+
+const schema = yup.object().shape({
+    model: yup.string().trim().required(""),
+    mark: yup.string().trim().required(),
+    movement: yup.string().trim().required(),
+    waterproof: yup.number().positive().integer().required(),
+    claspMaterial: yup.string().trim().required(),
+    braceletMaterial: yup.string().trim().required(),
+    housingMaterial: yup.string().trim().required(),
+    claspType: yup.string().trim().required(),
+    madeIn: yup.string().trim().required(),
+    description: yup.string().trim().required(),
+    watchImage: yup.mixed().required().test(
+        "fileFormat",
+        "Unsupported file type",
+        (value) => value[0] && SUPPORTED_FORMATS.includes(value[0].type)
+    )
+});
+
 export default function AddWatch () {
+    const {register, handleSubmit, formState: {errors, isSubmitted, isSubmitSuccessful}} = useForm({
+        resolver: yupResolver(schema)
+    });
 
-    const [dataNewWatch, setDataNewWatch] = useState({
-        model: "",
-        mark: "",
-        movement: "",
-        waterproof: "",
-        claspMaterial: "",
-        braceletMaterial: "",
-        housingMaterial: "",
-        claspType: "",
-        madeIn: "",
-        description: ""
-    })
+    // console.log({isSubmitted, isSubmitSuccessful})
+    // console.log("errors ", errors);
+    // console.log("errors lentgh", errors.length);
 
-    function handleChange (event) {
-        const el = event.target;
-        setDataNewWatch({...dataNewWatch, [el.name]: el.value})
-    }
+    // const [dataNewWatch, setDataNewWatch] = useState({
+    //     model: "",
+    //     mark: "",
+    //     movement: "",
+    //     waterproof: "",
+    //     claspMaterial: "",
+    //     braceletMaterial: "",
+    //     housingMaterial: "",
+    //     claspType: "",
+    //     madeIn: "",
+    //     description: "",
+    //     watchImage: {}
+    // })
+
+    // const handleChange = event => {
+    //     const el = event.target;
+    //     setDataNewWatch({...dataNewWatch, [el.name]: el.value})
+    // }
+
+    // const handleSubmit = event => {
+    //     event.preventDefault();
+    // }
+
+    const onSubmit = data => {
+        console.log("data useForm ", data);
+    };
+
+    // console.log("errors", errors);
 
     return (
         <>
@@ -30,98 +75,91 @@ export default function AddWatch () {
             <div className="qa-AddWatch__container">
                 <h2 className="qa-AddWatch__container--subTitle">Ajouter une montre de collection</h2>
 
-                <form className="qa-NewWatch__container">
+                <form className="qa-NewWatch__container" onSubmit={handleSubmit(onSubmit)}>
+                    {isSubmitSuccessful && <AlertSuccessMessage message="La montre a bien été ajouté" />}
+                    
+                    {(isSubmitted && !isSubmitSuccessful) && <AlertErrorMessage message="Oups ! Veuillez vérifier vos informations" />}
+
                     <div className="qa-NewWatch__group">
                         <FormGroup
                             labelText="Modèle"
                             typeInput="text"
-                            nameInput="model"
-                            valueInput={dataNewWatch.model}
                             placeholderInput="PETITE SECONDE BLACK"
-                            handleChange={handleChange}
+                            register={register("model")}
                         />
 
                         <FormGroup
                             labelText="Marque"
                             typeInput="text"
-                            nameInput="mark"
-                            valueInput={dataNewWatch.mark}
                             placeholderInput="Swatch"
-                            handleChange={handleChange}
+                            register={register("mark")}
                         />
 
                         <FormGroup
                             labelText="Mouvement"
                             typeInput="text"
-                            nameInput="movement"
-                            valueInput={dataNewWatch.movement}
                             placeholderInput="Automatique"
-                            handleChange={handleChange}
+                            register={register("movement")}
                         />
 
                         <FormGroup
                             labelText="Etanchéité"
                             typeInput="number"
-                            nameInput="waterproof"
-                            valueInput={dataNewWatch.waterproof}
                             placeholderInput="30 (en mètre)"
-                            handleChange={handleChange}
+                            register={register("waterproof")}
                         />
 
                         <FormGroup
                             labelText="Matière du fermoir"
                             typeInput="text"
-                            nameInput="claspMaterial"
-                            valueInput={dataNewWatch.claspMaterial}
                             placeholderInput="Acier inoxydable"
-                            handleChange={handleChange}
+                            register={register("claspMaterial")}
                         />
 
                         <FormGroup
                             labelText="Matière du bracelet"
                             typeInput="text"
-                            nameInput="braceletMaterial"
-                            valueInput={dataNewWatch.braceletMaterial}
                             placeholderInput="Cuir animal"
-                            handleChange={handleChange}
+                            register={register("braceletMaterial")}
                         />
 
                         <FormGroup
                             labelText="Matière du boitier"
                             typeInput="text"
-                            nameInput="housingMaterial"
-                            valueInput={dataNewWatch.housingMaterial}
                             placeholderInput="Acier inoxydable"
-                            handleChange={handleChange}
+                            register={register("housingMaterial")}
                         />
 
                         <FormGroup
                             labelText="Type de fermoir"
                             typeInput="text"
-                            nameInput="claspType"
-                            valueInput={dataNewWatch.claspType}
                             placeholderInput="Demi boucle"
-                            handleChange={handleChange}
+                            register={register("claspType")}
                         />
 
                         <FormGroup
                             labelText="Made in"
                             typeInput="text"
-                            nameInput="madeIn"
-                            valueInput={dataNewWatch.madeIn}
                             placeholderInput="Suisse"
-                            handleChange={handleChange}
+                            register={register("madeIn")}
                         />
                     </div>
 
                     <FormGroup
                         isTextarea={true}
                         labelText="Description"
-                        nameTextarea="description"
-                        valueTextarea={dataNewWatch.description}
                         placeholderTextarea="Une courte description ..."
-                        handleChange={handleChange}
+                        register={register("description")}
                     />
+
+                    <label className="qa-Form__group qa-Form__group-block">
+                        <button type="button" className="qa-Btn qa-Btn--uploadFile">Ajoutez une photo (PNG, JPG) : *</button>
+                        <input
+                            type="file"
+                            accept=".jpeg, .jpg, .png"
+                            {...register("watchImage")}
+                        />
+                    </label>
 
                     <p className="qa-NewWatch__container--requiredField">* : Champs obligatoire</p>
 

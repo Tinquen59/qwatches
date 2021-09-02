@@ -1,9 +1,23 @@
 .qa-Form {
     &__group {
+        position: relative;
         display: flex;
         flex-direction: column;
         width: 36%;
         margin-top: $m-m;
+        &-block {
+            display: inline-block;
+            width: auto;
+            & input[type=file] {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                cursor: pointer;
+            }
+        }
         &-L {
             width: 60%;
         }
@@ -20,5 +34,20 @@
             @include formField;
             resize: none;
         }
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .qa-Form__group {
+        width: 40%;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    .qa-Form__group {
+        width: 100%;
+        margin-top: $m-xs;
     }
 }

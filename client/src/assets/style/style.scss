@@ -12,6 +12,9 @@
 @import "./components/_navbar";
 @import "./components/_buttons";
 @import "./components/_formGroup";
+    // alert
+@import "./components/alert/_alertSuccessMessage";
+@import "./components/alert/_alertErrorMessage";
 
 // views
 @import "./views/_homepage";

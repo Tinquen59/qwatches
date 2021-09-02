@@ -38,3 +38,14 @@
         color: $primary-color;
     }
 }
+
+@mixin alertMessage ($bgc) {
+    margin-bottom: $m-m;
+    background-color: lighten($bgc, 35%);
+    border-radius: $br-rad-m;
+    padding: 1em 1.5em;
+
+    &--message {
+        color: darken($bgc, 15%);
+    }
+}
