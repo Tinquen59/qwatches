@@ -26,3 +26,26 @@
     background-color: $bgc;
     box-shadow: 0 3px 6px $shadow-color;
 }
+
+@mixin formField {
+    padding: 1em 1.7em;
+    border: 1px solid #000;
+    border-radius: $br-rad-m;
+    margin-top: $my-s;
+    outline: none;
+    &:focus {
+        border-color: $primary-color;
+        color: $primary-color;
+    }
+}
+
+@mixin alertMessage ($bgc) {
+    margin-bottom: $m-m;
+    background-color: lighten($bgc, 35%);
+    border-radius: $br-rad-m;
+    padding: 1em 1.5em;
+
+    &--message {
+        color: darken($bgc, 15%);
+    }
+}

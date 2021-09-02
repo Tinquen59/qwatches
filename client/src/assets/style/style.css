@@ -24,7 +24,7 @@ h1, h2, h3 {
   font-family: "MateSC";
 }
 
-p, a, span, div, button, input, input::placeholder {
+p, a, span, div, button, input, input::placeholder, textarea {
   font-family: "MavenPro";
 }
 
@@ -286,9 +286,143 @@ header .qa-LogoQwatches {
   color: #F5FBFF;
 }
 
+.qa-Btn--uploadFile {
+  background-color: #263973;
+  border: 2px solid #263973;
+  border-radius: 20px;
+}
+
+.qa-Btn--uploadFile:hover {
+  background-color: #F5FBFF;
+  color: #263973;
+}
+
+.qa-Btn--sendForm {
+  background: #17BF71;
+  background-image: linear-gradient(45deg, #263973 0%, #17BF71 100%);
+  border: none;
+  border-radius: 70px;
+  font-size: clamp(14px, 1.389vw, 25px);
+  padding: .7em 2.9em;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1100px) {
   .qa-Btn {
     padding: .8rem 1.7rem;
+  }
+}
+
+.qa-Form__group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 36%;
+  margin-top: 110px;
+}
+
+.qa-Form__group-block {
+  display: inline-block;
+  width: auto;
+}
+
+.qa-Form__group-block input[type=file] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.qa-Form__group-L {
+  width: 60%;
+}
+
+.qa-Form__group--text, .qa-Form__group--input, .qa-Form__group--textarea {
+  font-size: clamp(14px, 1.389vw, 25px);
+}
+
+.qa-Form__group--input {
+  padding: 1em 1.7em;
+  border: 1px solid #000;
+  border-radius: 20px;
+  margin-top: 31px;
+  outline: none;
+}
+
+.qa-Form__group--input:focus {
+  border-color: #263973;
+  color: #263973;
+}
+
+.qa-Form__group--textarea {
+  padding: 1em 1.7em;
+  border: 1px solid #000;
+  border-radius: 20px;
+  margin-top: 31px;
+  outline: none;
+  resize: none;
+}
+
+.qa-Form__group--textarea:focus {
+  border-color: #263973;
+  color: #263973;
+}
+
+@media screen and (max-width: 800px) {
+  .qa-Form__group {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .qa-Form__group {
+    width: 100%;
+    margin-top: 50px;
+  }
+}
+
+.qa-AlertSuccessMessage__container {
+  /* margin-bottom: $m-m;
+    background-color: lighten($third-color, 35%);
+    border-radius: $br-rad-m;
+    padding: 1em 1.5em;
+
+    &--message {
+        color: darken($third-color, 15%);
+    } */
+  margin-bottom: 110px;
+  background-color: #96f2c8;
+  border-radius: 20px;
+  padding: 1em 1.5em;
+}
+
+.qa-AlertSuccessMessage__container--message {
+  color: #0f7b49;
+}
+
+@media screen and (max-width: 700px) {
+  .qa-AlertSuccessMessage__container {
+    margin-bottom: 50px;
+  }
+}
+
+.qa-AlertErrorMessage__container {
+  margin-bottom: 110px;
+  background-color: #ffb3b3;
+  border-radius: 20px;
+  padding: 1em 1.5em;
+}
+
+.qa-AlertErrorMessage__container--message {
+  color: #b30000;
+}
+
+@media screen and (max-width: 700px) {
+  .qa-AlertErrorMessage__container {
+    margin-bottom: 50px;
   }
 }
 
@@ -347,7 +481,7 @@ header .qa-LogoQwatches {
   }
 }
 
-.qa-BasicHero__container--bgi {
+.qa-BasicHero__container--seeWatchesBgi {
   background-image: url("../images/hero_voirMontres.jpg");
 }
 
@@ -632,6 +766,70 @@ header .qa-LogoQwatches {
 @media screen and (max-width: 410px) {
   .qa-WatchFeature__group {
     width: 48%;
+  }
+}
+
+.qa-BasicHero__container--addWatchBgi {
+  background-image: url("../images/hero_ajouterMontre.jpg");
+}
+
+.qa-AddWatch__container {
+  margin: 231px 15.6% 0;
+}
+
+.qa-AddWatch__container--subTitle {
+  text-align: center;
+}
+
+.qa-NewWatch__container {
+  margin-top: 110px;
+}
+
+.qa-NewWatch__container--requiredField {
+  text-align: right;
+  font-variation-settings: "wght" 700;
+  font-style: italic;
+  margin-top: 110px;
+}
+
+.qa-NewWatch__group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.qa-NewWatch__group .qa-Form__group:nth-child(1) {
+  margin-top: 0;
+}
+
+.qa-NewWatch__group .qa-Form__group:nth-child(2) {
+  margin-top: 0;
+}
+
+.qa-NewWatch__submitForm {
+  margin-top: 110px;
+  text-align: center;
+}
+
+@media screen and (max-width: 700px) {
+  .qa-AddWatch__container {
+    margin-top: 100px;
+  }
+  .qa-NewWatch__container {
+    margin-top: 50px;
+  }
+  .qa-NewWatch__container--requiredField {
+    text-align: right;
+    font-variation-settings: "wght" 700;
+    font-style: italic;
+    margin-top: 50px;
+  }
+  .qa-NewWatch__group .qa-Form__group:nth-child(2) {
+    margin-top: 50px;
+  }
+  .qa-NewWatch__submitForm {
+    margin-top: 50px;
+    text-align: center;
   }
 }
 /*# sourceMappingURL=style.css.map */

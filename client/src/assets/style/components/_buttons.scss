@@ -19,6 +19,26 @@
             }
         }
     }
+
+    &--uploadFile {
+        background-color: $primary-color;
+        border: 2px solid $primary-color;
+        border-radius: $br-rad-m;
+        &:hover {
+            background-color: $secondary-color;
+            color: $primary-color;
+        }
+    }
+
+    &--sendForm {
+        background: $third-color;
+        background-image: $color-gradient-primary;
+        border: none;
+        border-radius: $br-rad-l;
+        font-size: clamp(14px, 1.389vw, 25px);
+        padding: .7em 2.9em;
+        cursor: pointer;
+    }
 }
 
 @media screen and (max-width: 1100px) {

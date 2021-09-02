@@ -63,7 +63,7 @@ export default function SeeWatches () {
 
     return(
         <>
-            <section className="qa-BasicHero__container qa-BasicHero__container--bgi">
+            <section className="qa-BasicHero__container qa-BasicHero__container--seeWatchesBgi">
                 <h1 className="qa-BasicHero__container--title">Contempler les montres de collections</h1>
             </section>
 
