@@ -1,12 +1,4 @@
 .qa-AlertSuccessMessage__container {
-    /* margin-bottom: $m-m;
-    background-color: lighten($third-color, 35%);
-    border-radius: $br-rad-m;
-    padding: 1em 1.5em;
-
-    &--message {
-        color: darken($third-color, 15%);
-    } */
     @include alertMessage($third-color);
 }
 
