@@ -30,6 +30,7 @@ export default function Account () {
     return (
         <>
             <section className="qa-BasicHero__container qa-BasicHero__container--accountBgi">
+                <div className="qa-BasicHero__container--filter"></div>
                 <h1 className="qa-BasicHero__container--title">Mon compte</h1>
             </section>
 

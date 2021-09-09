@@ -41,6 +41,7 @@ export default function AddWatch () {
     return (
         <>
             <section className="qa-BasicHero__container qa-BasicHero__container--addWatchBgi">
+                <div className="qa-BasicHero__container--filter"></div>
                 <h1 className="qa-BasicHero__container--title">Aidez la communauté en ajoutant des montres de collection</h1>
             </section>
 

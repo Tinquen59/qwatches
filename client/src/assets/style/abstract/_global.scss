@@ -52,8 +52,13 @@ ul li {
     align-items: center;
     @include hero-properties;
     height: 75vh;
+
+    &--filter {
+        @include filter-opacity;
+    }
     
     &--title {
+        position: relative;
         text-align: center;
         width: 70%;
     }
