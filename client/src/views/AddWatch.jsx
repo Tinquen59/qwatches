@@ -12,7 +12,7 @@ const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png"];
 
 // verification for input
 const schema = yup.object().shape({
-    model: yup.string().trim().required(""),
+    model: yup.string().trim().required(),
     mark: yup.string().trim().required(),
     movement: yup.string().trim().required(),
     waterproof: yup.number().positive().integer().required(),
@@ -54,6 +54,7 @@ export default function AddWatch () {
 
                     <div className="qa-NewWatch__group">
                         <FormGroup
+                            isRequired={true}
                             labelText="Modèle"
                             typeInput="text"
                             placeholderInput="PETITE SECONDE BLACK"
@@ -61,6 +62,7 @@ export default function AddWatch () {
                         />
 
                         <FormGroup
+                            isRequired={true}
                             labelText="Marque"
                             typeInput="text"
                             placeholderInput="Swatch"
@@ -68,6 +70,7 @@ export default function AddWatch () {
                         />
 
                         <FormGroup
+                            isRequired={true}
                             labelText="Mouvement"
                             typeInput="text"
                             placeholderInput="Automatique"
@@ -75,6 +78,7 @@ export default function AddWatch () {
                         />
 
                         <FormGroup
+                            isRequired={true}
                             labelText="Etanchéité"
                             typeInput="number"
                             placeholderInput="30 (en mètre)"
@@ -82,6 +86,7 @@ export default function AddWatch () {
                         />
 
                         <FormGroup
+                            isRequired={true}
                             labelText="Matière du fermoir"
                             typeInput="text"
                             placeholderInput="Acier inoxydable"
@@ -89,6 +94,7 @@ export default function AddWatch () {
                         />
 
                         <FormGroup
+                            isRequired={true}
                             labelText="Matière du bracelet"
                             typeInput="text"
                             placeholderInput="Cuir animal"
@@ -96,6 +102,7 @@ export default function AddWatch () {
                         />
 
                         <FormGroup
+                            isRequired={true}
                             labelText="Matière du boitier"
                             typeInput="text"
                             placeholderInput="Acier inoxydable"
@@ -103,6 +110,7 @@ export default function AddWatch () {
                         />
 
                         <FormGroup
+                            isRequired={true}
                             labelText="Type de fermoir"
                             typeInput="text"
                             placeholderInput="Demi boucle"
@@ -110,6 +118,7 @@ export default function AddWatch () {
                         />
 
                         <FormGroup
+                            isRequired={true}
                             labelText="Made in"
                             typeInput="text"
                             placeholderInput="Suisse"
@@ -118,6 +127,7 @@ export default function AddWatch () {
                     </div>
 
                     <FormGroup
+                        isRequired={true}
                         isTextarea={true}
                         labelText="Description"
                         placeholderTextarea="Une courte description ..."

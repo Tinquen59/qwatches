@@ -1,7 +1,7 @@
 export default function FormGroup (props) {
     return (
         <label className={`qa-Form__group ${props.isTextarea ? "qa-Form__group-L" : ""}`}>
-            <span className="qa-Form__group--text">{props.labelText} : *</span>
+            <span className="qa-Form__group--text">{props.labelText} : {props.isRequired && "*"}</span>
             {(props.isTextarea !== true) ? (
                 <input
                     type={props.typeInput}

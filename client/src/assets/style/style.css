@@ -307,6 +307,16 @@ header .qa-LogoQwatches {
   cursor: pointer;
 }
 
+.qa-Btn--leave {
+  background: red;
+  background-image: linear-gradient(45deg, red 0%, #263973 100%);
+  border: none;
+  border-radius: 70px;
+  font-size: clamp(14px, 1.389vw, 25px);
+  padding: .7em 2.9em;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1100px) {
   .qa-Btn {
     padding: .8rem 1.7rem;
@@ -385,14 +395,6 @@ header .qa-LogoQwatches {
 }
 
 .qa-AlertSuccessMessage__container {
-  /* margin-bottom: $m-m;
-    background-color: lighten($third-color, 35%);
-    border-radius: $br-rad-m;
-    padding: 1em 1.5em;
-
-    &--message {
-        color: darken($third-color, 15%);
-    } */
   margin-bottom: 110px;
   background-color: #96f2c8;
   border-radius: 20px;
@@ -818,18 +820,85 @@ header .qa-LogoQwatches {
   .qa-NewWatch__container {
     margin-top: 50px;
   }
-  .qa-NewWatch__container--requiredField {
-    text-align: right;
-    font-variation-settings: "wght" 700;
-    font-style: italic;
-    margin-top: 50px;
-  }
   .qa-NewWatch__group .qa-Form__group:nth-child(2) {
     margin-top: 50px;
   }
   .qa-NewWatch__submitForm {
     margin-top: 50px;
-    text-align: center;
+  }
+}
+
+.qa-BasicHero__container--accountBgi {
+  background-image: url("../images/hero_monCompte.jpg");
+}
+
+.qa-Account__container {
+  margin: 231px 15.6% 0;
+}
+
+.qa-Account__container--subTitle {
+  text-align: center;
+}
+
+.qa-AccountForm__container {
+  margin-top: 110px;
+}
+
+.qa-AccountForm__container--requiredField {
+  text-align: right;
+  font-variation-settings: "wght" 700;
+  font-style: italic;
+  margin-top: 110px;
+}
+
+.qa-AccountForm__group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.qa-AccountForm__group .qa-Form__group:nth-child(1) {
+  margin-top: 0;
+}
+
+.qa-AccountForm__group .qa-Form__group:nth-child(2) {
+  margin-top: 0;
+}
+
+.qa-AccountForm__buttonGroup {
+  display: flex;
+  justify-content: center;
+  margin-top: 110px;
+}
+
+.qa-AccountForm__buttonGroup--btn:not(:last-child) {
+  margin-right: 10%;
+}
+
+@media screen and (max-width: 700px) {
+  .qa-Account__container {
+    margin-top: 100px;
+  }
+  .qa-AccountForm__container {
+    margin-top: 50px;
+  }
+  .qa-AccountForm__group .qa-Form__group:nth-child(2) {
+    margin-top: 50px;
+  }
+  .qa-AccountForm__buttonGroup {
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .qa-AccountForm__buttonGroup {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .qa-AccountForm__buttonGroup--btn:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 2em;
   }
 }
 /*# sourceMappingURL=style.css.map */

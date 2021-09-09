@@ -27,11 +27,11 @@
         }
 
         &--input {
-            @include formField;
+            @include form-field;
         }
 
         &--textarea {
-            @include formField;
+            @include form-field;
             resize: none;
         }
     }

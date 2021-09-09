@@ -1,5 +1,5 @@
 .qa-AlertSuccessMessage__container {
-    @include alertMessage($third-color);
+    @include alert-message($third-color);
 }
 
 @media screen and (max-width: 700px) {
