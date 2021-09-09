@@ -27,3 +27,4 @@ $br-rad-m: 20px;
 
 // gradient color
 $color-gradient-primary: linear-gradient(45deg, $primary-color 0%, $third-color 100%);
+$color-gradient-leave : linear-gradient(45deg, rgba(255,0,0,1) 0%, $primary-color 100%);
