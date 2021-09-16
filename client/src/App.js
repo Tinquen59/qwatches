@@ -1,19 +1,43 @@
 import "./assets/style/style.css"
 
-import { BrowserRouter as Router } from "react-router-dom";
-import LaRoute from "./route/Router";
+import {
+  BrowserRouter as Router,
+  useLocation
+} from "react-router-dom";
 
+import LaRoute from "./route/Router";
 import PiedDePage from "./components/PiedDePage";
 import Navbar from "./components/template/Navbar";
 
+
+const noDisplayComponent = "/Connection";
+
 function App() {
-  return (
+  const usePageViews = () => {
+    const location = useLocation();
+    return location;
+  }
+
+  const DisplayNavbar = () => {
+    const { pathname } = usePageViews();
+    if (pathname !== noDisplayComponent) return <Navbar />
+    return <></>;
+  }
+
+  const DisplayPiedDePage = () => {
+    const { pathname } = usePageViews();
+    if (pathname !== noDisplayComponent) return <PiedDePage />;
+    return <></>;
+  }
+
+
+   return (
     <Router>
-      <Navbar />
+      <DisplayNavbar />
 
       <LaRoute />
 
-      <PiedDePage />
+      <DisplayPiedDePage />
     </Router>
   );
 }

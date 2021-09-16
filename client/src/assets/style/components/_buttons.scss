@@ -2,6 +2,18 @@
     color: $secondary-color;
     padding: 1.1rem 1.5rem;
 
+    &--third {
+        background-color: $third-color;
+        border: 2px solid $third-color;
+        border-radius: $br-rad-l;
+        font-size: clamp(12px, 1.389vw, 25px);
+        cursor: pointer;
+        &:hover {
+            background-color: transparent;
+            color: $third-color;
+        }
+    }
+
     &--link {
         background-color: $third-color;
         border-radius: $br-rad-l;

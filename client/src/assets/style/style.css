@@ -277,6 +277,19 @@ header .qa-LogoQwatches {
   padding: 1.1rem 1.5rem;
 }
 
+.qa-Btn--third {
+  background-color: #17BF71;
+  border: 2px solid #17BF71;
+  border-radius: 70px;
+  font-size: clamp(12px, 1.389vw, 25px);
+  cursor: pointer;
+}
+
+.qa-Btn--third:hover {
+  background-color: transparent;
+  color: #17BF71;
+}
+
 .qa-Btn--link {
   background-color: #17BF71;
   border-radius: 70px;
@@ -437,6 +450,59 @@ header .qa-LogoQwatches {
   .qa-AlertErrorMessage__container {
     margin-bottom: 50px;
   }
+}
+
+.qa-Connection__container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+.qa-CardConnection__container {
+  display: flex;
+  width: 55%;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(38, 57, 115, 0.35);
+}
+
+.qa-CardConnection__container--active {
+  width: calc(63% - .5px);
+}
+
+.qa-CardConnection__container--block {
+  width: calc(37% - .5px);
+}
+
+.qa-CardConnection__container--separator {
+  width: 1px;
+  height: auto;
+  background-color: #131414;
+}
+
+.qa-CardConnection__container {
+  display: flex;
+  width: 55%;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(38, 57, 115, 0.35);
+}
+
+.qa-CardConnection__container--separator {
+  width: 1px;
+  height: auto;
+  background-color: #131414;
+}
+
+.qa-CardConnection__block {
+  width: calc(37% - .5px);
+}
+
+.qa-CardConnection__block--active {
+  width: calc(63% - .5px);
 }
 
 .qa-HeroHomepage__container {

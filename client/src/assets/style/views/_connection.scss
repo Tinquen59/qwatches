@@ -1,0 +1,45 @@
+.qa-Connection__container {
+    position: relative;
+    @include flex-center;
+    flex-direction: row;
+    min-height: 100vh;
+}
+
+.qa-CardConnection__container {
+    display: flex;
+    @include card(55%, $br-rad-m, #fff);
+
+    &--active {
+        width: calc(63% - .5px);
+    }
+    &--block {
+        width: calc(37% - .5px);
+    }
+
+    &--separator {
+        width: 1px;
+        height: auto;
+        background-color: $black-color;
+    }
+}
+
+.qa-CardConnection {
+    &__container {
+        display: flex;
+        @include card(55%, $br-rad-m, #fff);
+
+        &--separator {
+            width: 1px;
+            height: auto;
+            background-color: $black-color;
+        }
+    }
+
+    &__block {
+        width: calc(37% - .5px);
+
+        &--active {
+            width: calc(63% - .5px);
+        }
+    }
+}
