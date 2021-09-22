@@ -1,8 +1,16 @@
 .qa-Connection__container {
     position: relative;
-    @include flex-center;
-    flex-direction: row;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     min-height: 100vh;
+    padding-top: 3%;
+
+    &--logo {
+        width: 161px;
+        height: 131px;
+        margin-bottom: 3%;
+    }
 }
 
 .qa-CardConnection__container {
@@ -14,6 +22,7 @@
     }
     &--block {
         width: calc(37% - .5px);
+        padding: 3.8% 6%;
     }
 
     &--separator {
@@ -36,10 +45,88 @@
     }
 
     &__block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         width: calc(37% - .5px);
+        padding: 3.8% 6%;
 
         &--active {
             width: calc(63% - .5px);
         }
+    }
+}
+
+.qa-ConnectionForm {
+    &__container {
+        width: 100%;
+    }
+
+    &__body {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 8%;
+        margin-bottom: 11%;
+    }
+}
+
+.qa-Connection__submitForm {
+    text-align: center;
+}
+
+
+@media screen and (max-width: 1500px) {
+    .qa-CardConnection__container {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .qa-CardConnection {
+        &__container {
+            flex-direction: column;
+
+            &--separator {
+                height: 1px;
+                width: 100%;
+            }
+        }
+
+        &__block {
+            width: 100%;
+            padding: 7.2%;
+
+            &--active {
+                width: 100%;
+            }
+        }
+    }
+
+    .qa-ConnectionForm__body {
+        flex-flow: column nowrap;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .qa-Connection__container {
+        padding-top: 7%;
+
+        &--logo {
+            width: 80.5px;
+            height: 65.4px;
+            margin-bottom: 12%;
+        }
+    }
+    .qa-CardConnection__block {
+        padding: 13.4%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .qa-Connection__container {
+        padding-top: 13.5%;
     }
 }

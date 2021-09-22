@@ -30,7 +30,7 @@ p, a, span, div, button, input, input::placeholder, textarea {
 
 h1 {
   font-size: clamp(26px, 4.444vw, 80px);
-  color: #F5FBFF;
+  color: #263973;
 }
 
 h2 {
@@ -45,6 +45,10 @@ h3 {
 
 p, a, span, div {
   font-size: clamp(12px, 1.389vw, 25px);
+}
+
+input, textarea {
+  font-size: clamp(14px, 1.389vw, 25px);
 }
 
 button {
@@ -76,8 +80,8 @@ ul li {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #000;
-  opacity: .6;
+  background-color: #F5FBFF;
+  opacity: .4;
 }
 
 .qa-BasicHero__container--title {
@@ -374,10 +378,6 @@ header .qa-LogoQwatches {
   width: 60%;
 }
 
-.qa-Form__group--text, .qa-Form__group--input, .qa-Form__group--textarea {
-  font-size: clamp(14px, 1.389vw, 25px);
-}
-
 .qa-Form__group--input {
   padding: 1em 1.7em;
   border: 1px solid #000;
@@ -418,6 +418,76 @@ header .qa-LogoQwatches {
   }
 }
 
+.qa-ConnectionForm__group {
+  position: relative;
+  width: 47%;
+  height: 64px;
+  margin-top: 31px;
+  margin-right: 6%;
+  cursor: text;
+}
+
+.qa-ConnectionForm__group:first-child, .qa-ConnectionForm__group:nth-child(2) {
+  margin-top: 0;
+}
+
+.qa-ConnectionForm__group:nth-child(2n) {
+  margin-right: 0;
+}
+
+.qa-ConnectionForm__group--input:focus + .qa-ConnectionForm__group--text,
+.qa-ConnectionForm__group--input:valid + .qa-ConnectionForm__group--text {
+  visibility: hidden;
+}
+
+.qa-ConnectionForm__group--input {
+  width: 100%;
+  height: 100%;
+  padding: 1em 1.2em;
+  border: 1px solid #000;
+  border-radius: 20px;
+  margin-top: 31px;
+  outline: none;
+  margin-top: 0;
+}
+
+.qa-ConnectionForm__group--input:focus {
+  border-color: #263973;
+  color: #263973;
+}
+
+.qa-ConnectionForm__group--input:focus {
+  outline: none;
+}
+
+.qa-ConnectionForm__group--text {
+  position: absolute;
+  top: 50%;
+  left: 12%;
+  transform: translateY(-50%);
+}
+
+@media screen and (max-width: 700px) {
+  .qa-ConnectionForm__group {
+    width: 70%;
+    height: 41px;
+    margin-top: 40px;
+    margin-right: 0;
+  }
+  .qa-ConnectionForm__group:nth-child(2) {
+    margin-top: 40px;
+  }
+  .qa-ConnectionForm__group--text {
+    left: 10%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .qa-ConnectionForm__group {
+    width: 98%;
+  }
+}
+
 .qa-AlertSuccessMessage__container {
   margin-bottom: 110px;
   background-color: #96f2c8;
@@ -455,10 +525,16 @@ header .qa-LogoQwatches {
 .qa-Connection__container {
   position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
   min-height: 100vh;
+  padding-top: 3%;
+}
+
+.qa-Connection__container--logo {
+  width: 161px;
+  height: 131px;
+  margin-bottom: 3%;
 }
 
 .qa-CardConnection__container {
@@ -475,6 +551,7 @@ header .qa-LogoQwatches {
 
 .qa-CardConnection__container--block {
   width: calc(37% - .5px);
+  padding: 3.8% 6%;
 }
 
 .qa-CardConnection__container--separator {
@@ -498,11 +575,79 @@ header .qa-LogoQwatches {
 }
 
 .qa-CardConnection__block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: calc(37% - .5px);
+  padding: 3.8% 6%;
 }
 
 .qa-CardConnection__block--active {
   width: calc(63% - .5px);
+}
+
+.qa-ConnectionForm__container {
+  width: 100%;
+}
+
+.qa-ConnectionForm__body {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 8%;
+  margin-bottom: 11%;
+}
+
+.qa-Connection__submitForm {
+  text-align: center;
+}
+
+@media screen and (max-width: 1500px) {
+  .qa-CardConnection__container {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .qa-CardConnection__container {
+    flex-direction: column;
+  }
+  .qa-CardConnection__container--separator {
+    height: 1px;
+    width: 100%;
+  }
+  .qa-CardConnection__block {
+    width: 100%;
+    padding: 7.2%;
+  }
+  .qa-CardConnection__block--active {
+    width: 100%;
+  }
+  .qa-ConnectionForm__body {
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .qa-Connection__container {
+    padding-top: 7%;
+  }
+  .qa-Connection__container--logo {
+    width: 80.5px;
+    height: 65.4px;
+    margin-bottom: 12%;
+  }
+  .qa-CardConnection__block {
+    padding: 13.4%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .qa-Connection__container {
+    padding-top: 13.5%;
+  }
 }
 
 .qa-HeroHomepage__container {

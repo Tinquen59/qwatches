@@ -11,7 +11,9 @@
 @import "./components/_piedDePage";
 @import "./components/_navbar";
 @import "./components/_buttons";
-@import "./components/_formGroup";
+    // form group
+@import "./components/formGroup/_formGroup";
+@import "./components/formGroup/_connectionFormGroup";
     // alert
 @import "./components/alert/_alertSuccessMessage";
 @import "./components/alert/_alertErrorMessage";

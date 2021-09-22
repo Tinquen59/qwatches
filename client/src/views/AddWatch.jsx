@@ -4,7 +4,7 @@ import * as yup from "yup";
 
 import AlertSuccessMessage from "../components/alert/AlertSuccessMessage";
 import AlertErrorMessage from "../components/alert/AlertErrorMessage";
-import FormGroup from "../components/FormGroup";
+import FormGroup from "../components/formGroup/FormGroup";
 
 
 // accepted format for upload input
