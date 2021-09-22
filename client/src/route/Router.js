@@ -3,6 +3,7 @@ import SeeWatches from "../views/SeeWatches";
 import WatchInformation from "../views/WatchInformation";
 import AddWatch from "../views/AddWatch";
 import Account from "../views/Account";
+import Connection from "../views/Connection";
 
 import {
     Switch,
@@ -22,6 +23,9 @@ export default () => {
                     )
                 }}
             />
+            <Route path="/Connection">
+                <Connection />
+            </Route>
             <Route path="/Accueil">
                 <Homepage />
             </Route>

@@ -33,8 +33,8 @@
     justify-content: space-between;
 }
 
-@mixin form-field {
-    padding: 1em 1.7em;
+@mixin form-field ($py: 1em, $px: 1.7em) {
+    padding: $py $px;
     border: 1px solid #000;
     border-radius: $br-rad-m;
     margin-top: $my-s;
@@ -71,12 +71,12 @@
     cursor: pointer;
 }
 
-@mixin filter-opacity ($color-filter: #000) {
+@mixin filter-opacity ($color-filter: $secondary-color) {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: $color-filter;
-    opacity: .6;
+    opacity: .4;
 }
