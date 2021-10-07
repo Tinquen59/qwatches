@@ -77,7 +77,7 @@ export default function Connection () {
                     <div className={`qa-CardConnection__block ${isLogin ? "qa-CardConnection__block--active" : ""}`}>
                         {isLogin ? (
                             <>
-                                <h1 className="qa-CardConnection__container--title">Connection</h1>
+                                <h1 className="qa-CardConnection__container--title">Connexion</h1>
 
                                 <form className="qa-ConnectionForm__container" onSubmit={handleSubmit(loginQwatches)}>
                                     <div className="qa-ConnectionForm__body">
