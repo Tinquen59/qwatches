@@ -1,7 +1,8 @@
 # Qwatches
 
-for start the client, open the client folder.<br>
 You can run mongodb with this command :
 ```bash
 > mongod
 ```
+For start the api, open the api folder.<br>
+For start the client, open the client folder.
