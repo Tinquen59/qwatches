@@ -6,6 +6,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: $height-header-l;
     padding: 1.5% 4.4%;
     background-color: $primary-color;
     z-index: 100;
@@ -58,6 +59,13 @@ header {
 
     & .qa-BurgerMenu {
         display: none;
+    }
+}
+
+
+@media screen and (max-width: 1300px) {
+    header {
+        height: $height-header-m;
     }
 }
 

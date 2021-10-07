@@ -1,27 +1,24 @@
-import swatchImg from "../assets/images/swatch_system51_irony.png";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
+
+import instance from "../helpers/axiosInstance";
 
 export default function WatchInformation () {
-    const watchData = {
-        image: {
-            src: swatchImg,
-            alt: "montre swatch"
-        },
-        movement: "Automatique",
-        waterproof: 30,
-        braceletMaterial: "Cuir animal",
-        claspMaterial: "Acier inoxydable",
-        claspType: "Demi boucle",
-        housingMaterial: "Acier inoxydable",
-        model: "Petite seconde black",
-        mark: "Swatch",
-        description: "La collection SISTEM51 toujours aussi innovante accueille une nouveauté : PETITE SECONDE BLACK (SY23S400) ! Cette montre mécanique est dotée d’un sous-cadran de secondes à 6 h ainsi que d’un guichet date à 3 h sur le cadran brossé soleil noir. Son bracelet en cuir noir et ses Swatch appliques viennent compléter son design élégant.",
-        madeIn: "Suisse"
-    };
+    const { slug } = useParams();
+    
+    const [watchData, setWatchData] = useState({});
+
+    useEffect(() => {
+        const slugData = { model: slug };
+        instance.post("/api/watch/detail-watch", slugData)
+            .then(result => setWatchData(result.data))
+            .catch(error => console.error(error));
+    }, []);
 
     return (
         <div className="qa-WatchInformation__container">
             <div className="qa-WatchDetail__container">
-                <img src={watchData.image.src} alt={watchData.image.alt} className="qa-WatchDetail__container--image" />
+                <img src={watchData.watchImage} alt={`${watchData.mark} - ${watchData.model}`} className="qa-WatchDetail__container--image" />
 
                 <div className="qa-WatchFeature__container">
                     <div className="qa-WatchFeature__group">

@@ -1,65 +1,61 @@
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { Redirect } from "react-router";
+
+import instance from "../helpers/axiosInstance";
 
 import CardWatches from "../components/Card/CardWatches";
 
-import swatchImg from "../assets/images/swatch_system51_irony.png";
-import seikoImg from "../assets/images/seiko.jpg";
-
 
 export default function SeeWatches () {
+    const [dataWatches, setDataWatches] = useState({});
+    const [searchBar, setSearchBar] = useState("");
 
-    const dataWatches = [
-        {
-            image: {
-                src: swatchImg,
-                alt: "montre swatch"
-            },
-            model: "Petite seconde black",
-            mark: "Swatch"
-        },
-        {
-            image: {
-                src: seikoImg,
-                alt: "montre seiko"
-            },
-            model: "Aucune idée",
-            mark: "Seiko"
-        },
-        {
-            image: {
-                src: swatchImg,
-                alt: "montre swatch"
-            },
-            model: "Petite seconde black",
-            mark: "Swatch"
-        },
-        {
-            image: {
-                src: seikoImg,
-                alt: "montre seiko"
-            },
-            model: "Aucune idée",
-            mark: "Seiko"
-        },
-        {
-            image: {
-                src: swatchImg,
-                alt: "montre swatch"
-            },
-            model: "Petite seconde black",
-            mark: "Swatch"
-        },
-        {
-            image: {
-                src: seikoImg,
-                alt: "montre seiko"
-            },
-            model: "Aucune idée",
-            mark: "Seiko"
+    /**
+     * get all watches
+     */
+    const getAllWatches = () => {
+        instance.get("/api/watch/all-watches")
+            .then(result => setDataWatches(result.data))
+            .catch(error => console.error(error));
+    }
+
+    /**
+     * set value when the value of search bar change
+     * @param {*} event 
+     */
+    const handleChangeSearchBar = (event) => {
+        const el = event.target;
+        setSearchBar(el.value);
+    };
+
+    /**
+     * search watches by the search bar
+     * @param {*} event 
+     */
+    const searchWatches = (event) => {
+        event.preventDefault();
+
+        if (searchBar === "") {
+            getAllWatches();
+        } else {
+            instance.post("/api/watch/search-watches", { searchBar })
+                .then(result => setDataWatches(result.data))
+                .catch(error => console.error(error));
         }
-    ]
+    };
+
+    /**
+     * get all watches when the component is mounted
+     */
+    useEffect(() => {
+        if (localStorage.getItem("token")) getAllWatches();
+    }, []);
+
+    // if haven't token go back to the login page
+    if (!localStorage.getItem("token")) return <Redirect to="/Connection" />;
 
     return(
         <>
@@ -69,12 +65,13 @@ export default function SeeWatches () {
             </section>
 
             <section className="qa-SeeWatches__container">
-                <form className="qa-SearchBar__container">
+                <form className="qa-SearchBar__container" onSubmit={searchWatches}>
                     <input
                         className="qa-SearchBar__container--input"
                         type="text"
                         name="search"
                         placeholder="Rechercher une montre"
+                        onChange={handleChangeSearchBar}
                     />
                     <button
                         className="qa-Btn--search"
@@ -86,13 +83,18 @@ export default function SeeWatches () {
                         />
                     </button>
                 </form>
-
+                    
                 <div className="qa-AllWatches__container">
-                    {dataWatches.map((watchData, index) => (
-                        <Link to="/voir-les-montres/test" className="qa-CardWatch__container" key={index}>
-                            <CardWatches watchData={watchData} />
-                        </Link>
-                    ))}
+                    {(dataWatches.length)
+                        ? dataWatches.map((watchData, index) => (
+                            <Link to={`/voir-les-montres/${watchData.model}`} className="qa-CardWatch__container" key={index}>
+                                <CardWatches watchData={watchData} />
+                            </Link>
+                        ))
+                        : (
+                            <p>Aucun résultat</p>
+                        )
+                    }
                 </div>
             </section>
         </>

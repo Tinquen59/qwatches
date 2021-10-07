@@ -8,6 +8,7 @@
 
     &--image {
         width: 36%;
+        height: 514px;
         margin-right: 6.5%;
         object-fit: cover;
         border-radius: $br-rad-l;
@@ -82,8 +83,17 @@
 }
 
 
+@media screen and (max-width: 1300px) {
+    .qa-WatchDetail__container--image {
+        height: 390px;
+    }
+}
 
 @media screen and (max-width: 1060px) {
+    .qa-WatchDetail__container--image {
+        height: 330px;
+    }
+
     .qa-CardDescription__header {
         padding: 3.5%;
     }
@@ -98,6 +108,7 @@
     
         &--image {
             width: 70%;
+            height: auto;
             margin-right: 0;
             margin-bottom: $m-xs;
         }

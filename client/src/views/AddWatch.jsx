@@ -1,10 +1,14 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { Redirect } from "react-router";
+
+import instance from "../helpers/axiosInstance";
 
 import AlertSuccessMessage from "../components/alert/AlertSuccessMessage";
 import AlertErrorMessage from "../components/alert/AlertErrorMessage";
 import FormGroup from "../components/formGroup/FormGroup";
+import { useEffect, useState } from "react";
 
 
 // accepted format for upload input
@@ -30,13 +34,76 @@ const schema = yup.object().shape({
 });
 
 export default function AddWatch () {
-    const {register, handleSubmit, formState: {isSubmitted, isSubmitSuccessful}} = useForm({
+    const [showAlert, setShowAlert] = useState(false);
+    const [messageAlert, setMessageAlert] = useState("");
+    const {register, handleSubmit, reset, formState: {submitCount, isSubmitted, isSubmitSuccessful}} = useForm({
         resolver: yupResolver(schema)
     });
 
+    /**
+     * close alert
+     */
+    const closeAlert = () => {
+        setShowAlert(false);
+    }
+
+    /**
+     * display alert
+     * @returns AlertSuccessMessage component or AlertErrorMessage component
+     */
+    const displayAlert = () => {
+        if (isSubmitSuccessful) {
+            if (showAlert) {
+                return <AlertSuccessMessage
+                            message={messageAlert}
+                            closeAlert={closeAlert}
+                       />
+            }
+            
+        } else {
+            if (showAlert) {
+                return <AlertErrorMessage
+                            message="Oups ! Veuillez vérifier vos informations"
+                            closeAlert={closeAlert}
+                        />
+            }
+            
+        }
+    }
+
+    /**
+     * when sending the form
+     * @param {*} data is fields data
+     */
     const onSubmit = data => {
-        console.log("data useForm ", data);
+        data = { ...data, userId: localStorage.getItem("userId") }
+        const formData = new FormData();
+
+        for (const key in data) {
+            if (key === "watchImage") {
+                formData.append(key, data[key][0]);
+            }
+            else {
+                formData.append(key, data[key]);
+            }
+        }
+
+        instance.post("/api/watch/new-watch", formData)
+            .then(response => setMessageAlert(response.data.message))
+            .catch(error => console.error(error));
+
+        reset();
     };
+
+    /**
+     * show alert when sending the form
+     */
+    useEffect(() => {
+        setShowAlert(isSubmitted);
+    }, [submitCount]);
+
+    // if haven't token go back to the login page
+    if (!localStorage.getItem("token")) return <Redirect to="/Connection" />;
 
     return (
         <>
@@ -48,10 +115,8 @@ export default function AddWatch () {
             <div className="qa-AddWatch__container">
                 <h2 className="qa-AddWatch__container--subTitle">Ajouter une montre de collection</h2>
 
-                <form className="qa-NewWatch__container" onSubmit={handleSubmit(onSubmit)}>
-                    {isSubmitSuccessful && <AlertSuccessMessage message="La montre a bien été ajouté" />}
-                    
-                    {(isSubmitted && !isSubmitSuccessful) && <AlertErrorMessage message="Oups ! Veuillez vérifier vos informations" />}
+                <form className="qa-NewWatch__container" encType="multipart/form-data" onSubmit={handleSubmit(onSubmit)}>
+                    {(isSubmitted && showAlert) && displayAlert()}
 
                     <div className="qa-NewWatch__group">
                         <FormGroup
@@ -59,7 +124,8 @@ export default function AddWatch () {
                             labelText="Modèle"
                             typeInput="text"
                             placeholderInput="PETITE SECONDE BLACK"
-                            register={register("model")}
+                            nameField="model"
+                            register={register}
                         />
 
                         <FormGroup
@@ -67,7 +133,8 @@ export default function AddWatch () {
                             labelText="Marque"
                             typeInput="text"
                             placeholderInput="Swatch"
-                            register={register("mark")}
+                            nameField="mark"
+                            register={register}
                         />
 
                         <FormGroup
@@ -75,7 +142,8 @@ export default function AddWatch () {
                             labelText="Mouvement"
                             typeInput="text"
                             placeholderInput="Automatique"
-                            register={register("movement")}
+                            nameField="movement"
+                            register={register}
                         />
 
                         <FormGroup
@@ -83,7 +151,8 @@ export default function AddWatch () {
                             labelText="Etanchéité"
                             typeInput="number"
                             placeholderInput="30 (en mètre)"
-                            register={register("waterproof")}
+                            nameField="waterproof"
+                            register={register}
                         />
 
                         <FormGroup
@@ -91,7 +160,8 @@ export default function AddWatch () {
                             labelText="Matière du fermoir"
                             typeInput="text"
                             placeholderInput="Acier inoxydable"
-                            register={register("claspMaterial")}
+                            nameField="claspMaterial"
+                            register={register}
                         />
 
                         <FormGroup
@@ -99,7 +169,8 @@ export default function AddWatch () {
                             labelText="Matière du bracelet"
                             typeInput="text"
                             placeholderInput="Cuir animal"
-                            register={register("braceletMaterial")}
+                            nameField="braceletMaterial"
+                            register={register}
                         />
 
                         <FormGroup
@@ -107,7 +178,8 @@ export default function AddWatch () {
                             labelText="Matière du boitier"
                             typeInput="text"
                             placeholderInput="Acier inoxydable"
-                            register={register("housingMaterial")}
+                            nameField="housingMaterial"
+                            register={register}
                         />
 
                         <FormGroup
@@ -115,7 +187,8 @@ export default function AddWatch () {
                             labelText="Type de fermoir"
                             typeInput="text"
                             placeholderInput="Demi boucle"
-                            register={register("claspType")}
+                            nameField="claspType"
+                            register={register}
                         />
 
                         <FormGroup
@@ -123,7 +196,8 @@ export default function AddWatch () {
                             labelText="Made in"
                             typeInput="text"
                             placeholderInput="Suisse"
-                            register={register("madeIn")}
+                            nameField="madeIn"
+                            register={register}
                         />
                     </div>
 
@@ -132,7 +206,8 @@ export default function AddWatch () {
                         isTextarea={true}
                         labelText="Description"
                         placeholderTextarea="Une courte description ..."
-                        register={register("description")}
+                        nameField="description"
+                        register={register}
                     />
 
                     <label className="qa-Form__group qa-Form__group-block">
@@ -140,7 +215,7 @@ export default function AddWatch () {
                         <input
                             type="file"
                             accept=".jpeg, .jpg, .png"
-                            {...register("watchImage")}
+                            {...register("watchImage", { required: true })}
                         />
                     </label>
 

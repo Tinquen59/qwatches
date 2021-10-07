@@ -1,5 +1,6 @@
 .qa-HeroHomepage__container {
-    height: 100vh;
+    margin-top: $height-header-l;
+    height: calc(100vh - #{$height-header-l});
     background-image: url("../images/hero_homepage.jpg");
     @include hero-properties;
 
@@ -26,6 +27,12 @@
     }
 }
 
+@media screen and (max-width: 1300px) {
+    .qa-HeroHomepage__container {
+        margin-top: $height-header-m;
+        height: calc(100vh - #{$height-header-m});
+    }
+}
 
 @media screen and (max-width: 1100px) {
     .qa-Homepage__container {

@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Redirect } from "react-router";
 
 export default function Homepage() {
+    // if haven't token go back to the login page
+    if (!localStorage.getItem("token")) return <Redirect to="/Connection" />;
+
     return (
         <>
             <section className="qa-HeroHomepage__container">
@@ -13,7 +17,7 @@ export default function Homepage() {
 
                 <p>Découvrez de nouvelles montres de collection et ajoutez des commentaires afin d’aider la communauté à trouver sa montre</p>
 
-                <Link to="/" className="qa-Btn qa-Btn--link">Voir les montres</Link>
+                <Link to="/Voir-les-montres" className="qa-Btn qa-Btn--link">Voir les montres</Link>
             </section>
         </>
     );

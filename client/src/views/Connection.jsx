@@ -2,38 +2,71 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { Redirect } from "react-router";
+
+import instance from "../helpers/axiosInstance";
 
 import { LogoQwatches } from "../iconComponents/index";
 
 import ConnectionFormGroup from "../components/formGroup/ConnectionFormGroup";
 
 
+// verification for input
 const schema = yup.object().shape({
     pseudo: yup.string().when("isLogin", {
         is: true,
         then: yup.string().trim().required()
     }),
-    mail: yup.string().email().trim().required(),
+    email: yup.string().email().trim().required(),
     password: yup.string().trim().required()
 })
 
 export default function Connection () {
     const [isLogin, setIsLogin] = useState(true);
+    const [issend, setIsSend] = useState(false)
     const {register, handleSubmit, reset, formState: {isSubmitted, isSubmitSuccessful}} = useForm({
-        defaultValues: { mail: "", password: "" },
         resolver: yupResolver(schema)
     });
-    console.log("send form", {isSubmitted, isSubmitSuccessful});
 
 
+    /**
+     * change between login and signup
+     */
     const changeIsLogin = () => {
         setIsLogin(!isLogin)
         reset();
     };
 
-    const onSubmit = data => {
-        console.log(data);
+    /**
+     * login user and get the token
+     * @param {*} data is fields data 
+     */
+    const loginQwatches = async data => {
+        instance.post("/api/login", data)
+            .then(response => {
+                localStorage.setItem("token", response.data.token);
+                localStorage.setItem("userId", response.data.userId);
+                setIsSend(true);
+            })
+            .catch(error => console.error(error));
     };
+
+    /**
+     * add new user and get the token
+     * @param {*} data is fields data
+     */
+    const newUser = data => {
+        instance.post("/api/signup", data)
+            .then(response => {
+                localStorage.setItem("token", response.data.token);
+                localStorage.setItem("userId", response.data.userId);
+                setIsSend(true);
+            })
+            .catch(error => console.error(error));
+    };
+
+    // if have token go to the home page
+    if (localStorage.getItem("token")) return <Redirect to="/" />;
 
     return (
         <>
@@ -44,15 +77,15 @@ export default function Connection () {
                     <div className={`qa-CardConnection__block ${isLogin ? "qa-CardConnection__block--active" : ""}`}>
                         {isLogin ? (
                             <>
-                                <h1 className="qa-CardConnection__container--title">Se connecter</h1>
+                                <h1 className="qa-CardConnection__container--title">Connection</h1>
 
-                                <form className="qa-ConnectionForm__container" onSubmit={handleSubmit(onSubmit)}>
+                                <form className="qa-ConnectionForm__container" onSubmit={handleSubmit(loginQwatches)}>
                                     <div className="qa-ConnectionForm__body">
                                         <ConnectionFormGroup
                                             labelText="Mail"
-                                            typeInput="email"
+                                            typeInput="text"
                                             isRequired={true}
-                                            register={register("mail")}
+                                            register={register("email")}
                                         />
                                         
                                         <ConnectionFormGroup
@@ -98,22 +131,22 @@ export default function Connection () {
                             </>
                         ) : (
                             <>
-                                <h1 className="qa-CardConnection__container--title">S'inscrire</h1>
+                                <h1 className="qa-CardConnection__container--title">Inscription</h1>
 
-                                <form className="qa-ConnectionForm__container" onSubmit={handleSubmit(onSubmit)}>
+                                <form className="qa-ConnectionForm__container" onSubmit={handleSubmit(newUser)}>
                                     <div className="qa-ConnectionForm__body">
                                         <ConnectionFormGroup
                                             labelText="Pseudo"
                                             typeInput="text"
                                             isRequired={true}
-                                            register={register("Pseudo")}
+                                            register={register("pseudo")}
                                         />
                                         
                                         <ConnectionFormGroup
                                             labelText="Mail"
-                                            typeInput="email"
+                                            typeInput="text"
                                             isRequired={true}
-                                            register={register("mail")}
+                                            register={register("email")}
                                         />
                                         
                                         <ConnectionFormGroup

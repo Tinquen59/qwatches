@@ -55,7 +55,8 @@ ul li {
     justify-content: center;
     align-items: center;
     @include hero-properties;
-    height: 75vh;
+    margin-top: $height-header-l;
+    height: calc(75vh - #{$height-header-l});
 
     &--filter {
         @include filter-opacity;
@@ -65,5 +66,12 @@ ul li {
         position: relative;
         text-align: center;
         width: 70%;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .qa-BasicHero__container {
+        margin-top: $height-header-m;
+        height: calc(75vh - #{$height-header-m});
     }
 }
