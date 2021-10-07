@@ -1,20 +1,29 @@
-export default function FormGroup (props) {
+export default function FormGroup ({
+    isTextarea,
+    labelText,
+    isRequired,
+    typeInput,
+    placeholderInput,
+    register,
+    nameField,
+    placeholderTextarea
+}) {
     return (
-        <label className={`qa-Form__group ${props.isTextarea ? "qa-Form__group-L" : ""}`}>
-            <span className="qa-Form__group--text">{props.labelText} : {props.isRequired && "*"}</span>
-            {(props.isTextarea !== true) ? (
+        <label className={`qa-Form__group ${isTextarea ? "qa-Form__group-L" : ""}`}>
+            <span className="qa-Form__group--text">{labelText} : {isRequired && "*"}</span>
+            {(isTextarea !== true) ? (
                 <input
-                    type={props.typeInput}
+                    type={typeInput}
                     className="qa-Form__group--input"
-                    placeholder={`Ex: ${props.placeholderInput}`}
-                    {...props.register}
+                    placeholder={`Ex: ${placeholderInput}`}
+                    {...register(nameField, {required: isRequired})}
                 />
             ) : (
                 <textarea
                     className="qa-Form__group--textarea"
-                    placeholder={props.placeholderTextarea}
+                    placeholder={placeholderTextarea}
                     rows="5"
-                    {...props.register}
+                    {...register(nameField, {required: isRequired})}
                 />
             )}
         </label>

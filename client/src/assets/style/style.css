@@ -71,7 +71,8 @@ ul li {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  height: 75vh;
+  margin-top: 147px;
+  height: calc(75vh - 147px);
 }
 
 .qa-BasicHero__container--filter {
@@ -88,6 +89,13 @@ ul li {
   position: relative;
   text-align: center;
   width: 70%;
+}
+
+@media screen and (max-width: 1300px) {
+  .qa-BasicHero__container {
+    margin-top: 127px;
+    height: calc(75vh - 127px);
+  }
 }
 
 body {
@@ -130,6 +138,12 @@ footer .qa-Copyright {
   color: #F5FBFF;
 }
 
+@media screen and (max-width: 700px) {
+  footer {
+    margin-top: 100px;
+  }
+}
+
 @media screen and (max-width: 500px) {
   footer {
     flex-direction: column-reverse;
@@ -149,6 +163,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 147px;
   padding: 1.5% 4.4%;
   background-color: #263973;
   z-index: 100;
@@ -202,6 +217,12 @@ header .qa-LogoQwatches {
 
 .qa-Navigation__container .qa-BurgerMenu {
   display: none;
+}
+
+@media screen and (max-width: 1300px) {
+  header {
+    height: 127px;
+  }
 }
 
 @media screen and (max-width: 960px) {
@@ -296,7 +317,15 @@ header .qa-LogoQwatches {
 
 .qa-Btn--link {
   background-color: #17BF71;
+  border: 2px solid #17BF71;
   border-radius: 70px;
+  transition: all 0.3s ease-in-out;
+}
+
+.qa-Btn--link:hover {
+  background-color: #F5FBFF;
+  color: #17BF71;
+  border-color: #17BF71;
 }
 
 .qa-Btn--search {
@@ -318,6 +347,7 @@ header .qa-LogoQwatches {
   background-color: #263973;
   border: 2px solid #263973;
   border-radius: 20px;
+  transition: all 0.3s ease-in-out;
 }
 
 .qa-Btn--uploadFile:hover {
@@ -333,16 +363,38 @@ header .qa-LogoQwatches {
   font-size: clamp(14px, 1.389vw, 25px);
   padding: .7em 2.9em;
   cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.qa-Btn--sendForm:hover {
+  box-shadow: 0 0 25px #17BF71;
 }
 
 .qa-Btn--leave {
-  background: red;
-  background-image: linear-gradient(45deg, red 0%, #263973 100%);
+  background: #c70f14;
+  background-image: linear-gradient(45deg, #c70f14 0%, #263973 100%);
   border: none;
   border-radius: 70px;
   font-size: clamp(14px, 1.389vw, 25px);
   padding: .7em 2.9em;
   cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.qa-Btn--leave:hover {
+  box-shadow: 0 0 25px #c70f14;
+}
+
+.qa-Btn--remove {
+  background-color: #c70f14;
+  border: 2px solid #c70f14;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.qa-Btn--remove:hover {
+  border-color: #F5FBFF;
 }
 
 @media screen and (max-width: 1100px) {
@@ -489,14 +541,39 @@ header .qa-LogoQwatches {
 }
 
 .qa-AlertSuccessMessage__container {
-  margin-bottom: 110px;
+  position: fixed;
+  top: calc(147px + 50px);
+  left: 50%;
+  max-width: 70%;
   background-color: #96f2c8;
   border-radius: 20px;
   padding: 1em 1.5em;
+  z-index: 50;
+  transform: translateX(-50%);
+}
+
+.qa-AlertSuccessMessage__container--close {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  padding: .3em .8em;
+  font-size: clamp(12px, 1.111vw, 20px);
+  background-color: #96f2c8;
+  color: #0f7b49;
+  border-radius: 20px;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 20px #0f7b49;
+  cursor: pointer;
+  transition: border 0.3s ease-in-out;
+}
+
+.qa-AlertSuccessMessage__container--close:hover {
+  border: 1px solid #0f7b49;
 }
 
 .qa-AlertSuccessMessage__container--message {
   color: #0f7b49;
+  text-align: center;
 }
 
 @media screen and (max-width: 700px) {
@@ -506,14 +583,39 @@ header .qa-LogoQwatches {
 }
 
 .qa-AlertErrorMessage__container {
-  margin-bottom: 110px;
+  position: fixed;
+  top: calc(147px + 50px);
+  left: 50%;
+  max-width: 70%;
   background-color: #ffb3b3;
   border-radius: 20px;
   padding: 1em 1.5em;
+  z-index: 50;
+  transform: translateX(-50%);
+}
+
+.qa-AlertErrorMessage__container--close {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  padding: .3em .8em;
+  font-size: clamp(12px, 1.111vw, 20px);
+  background-color: #ffb3b3;
+  color: #b30000;
+  border-radius: 20px;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 20px #b30000;
+  cursor: pointer;
+  transition: border 0.3s ease-in-out;
+}
+
+.qa-AlertErrorMessage__container--close:hover {
+  border: 1px solid #b30000;
 }
 
 .qa-AlertErrorMessage__container--message {
   color: #b30000;
+  text-align: center;
 }
 
 @media screen and (max-width: 700px) {
@@ -651,7 +753,8 @@ header .qa-LogoQwatches {
 }
 
 .qa-HeroHomepage__container {
-  height: 100vh;
+  margin-top: 147px;
+  height: calc(100vh - 147px);
   background-image: url("../images/hero_homepage.jpg");
   position: relative;
   background-repeat: no-repeat;
@@ -679,6 +782,13 @@ header .qa-LogoQwatches {
   margin-bottom: 70px;
   width: 50%;
   text-align: center;
+}
+
+@media screen and (max-width: 1300px) {
+  .qa-HeroHomepage__container {
+    margin-top: 127px;
+    height: calc(100vh - 127px);
+  }
 }
 
 @media screen and (max-width: 1100px) {
@@ -830,6 +940,12 @@ header .qa-LogoQwatches {
   }
 }
 
+@media screen and (max-width: 700px) {
+  .qa-SeeWatches__container {
+    margin-top: 100px;
+  }
+}
+
 @media screen and (max-width: 650px) {
   .qa-SeeWatches__container {
     margin-left: 31px;
@@ -864,6 +980,7 @@ header .qa-LogoQwatches {
 
 .qa-WatchDetail__container--image {
   width: 36%;
+  height: 514px;
   margin-right: 6.5%;
   object-fit: cover;
   border-radius: 70px;
@@ -943,7 +1060,16 @@ header .qa-LogoQwatches {
   margin: 110px auto;
 }
 
+@media screen and (max-width: 1300px) {
+  .qa-WatchDetail__container--image {
+    height: 390px;
+  }
+}
+
 @media screen and (max-width: 1060px) {
+  .qa-WatchDetail__container--image {
+    height: 330px;
+  }
   .qa-CardDescription__header {
     padding: 3.5%;
   }
@@ -957,6 +1083,7 @@ header .qa-LogoQwatches {
   }
   .qa-WatchDetail__container--image {
     width: 70%;
+    height: auto;
     margin-right: 0;
     margin-bottom: 50px;
   }
@@ -1095,6 +1222,55 @@ header .qa-LogoQwatches {
 
 .qa-AccountForm__buttonGroup--btn:not(:last-child) {
   margin-right: 10%;
+}
+
+.qa-ListMyWatches__container {
+  margin-top: 110px;
+}
+
+.qa-ListMyWatches__header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #263973;
+  color: #F5FBFF;
+  border-radius: 20px;
+  box-shadow: 0 3px 6px rgba(38, 57, 115, 0.35);
+  padding: 1em 1.6em;
+}
+
+.qa-ListMyWatches__header--display {
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.qa-ListMyWatches__header--display:hover {
+  transform: rotate(1turn);
+}
+
+.qa-ListMyWatches__item {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  background-color: #263973;
+  border-radius: 20px;
+}
+
+.qa-ListMyWatches__item--image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.qa-ListMyWatches__item--btn {
+  margin-left: auto;
+  margin-right: 2em;
+}
+
+.qa-ListMyWatches__content {
+  margin-left: 2em;
+  color: #F5FBFF;
 }
 
 @media screen and (max-width: 700px) {

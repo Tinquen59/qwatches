@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-import { LogoQwatches } from "../../iconComponents/index";
+import { LogoQwatchesSecondary } from "../../iconComponents/index";
 
 import { Link, NavLink } from "react-router-dom";
 
@@ -20,11 +20,7 @@ export default function Navbar () {
     const toggleBurgerMenu = () => {
         setToggleMenu(!toggleMenu);
 
-        console.log("je suis l'inverse ", !toggleMenu);
-
         !toggleMenu ? burgerMenu.current.classList.add("qa-BurgerMenu--active") : burgerMenu.current.classList.remove("qa-BurgerMenu--active");
-
-        console.log("je suis la ref ", burgerMenu.current)
     };
 
     useEffect(() => {
@@ -42,7 +38,7 @@ export default function Navbar () {
     return (
         <header>
             <Link to="/Accueil">
-                <LogoQwatches className="qa-LogoQwatches" />
+                <LogoQwatchesSecondary className="qa-LogoQwatches" />
             </Link>
 
             <nav className="qa-Navigation__container">

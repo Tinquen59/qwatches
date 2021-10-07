@@ -53,13 +53,37 @@
 }
 
 @mixin alert-message ($bgc) {
-    margin-bottom: $m-m;
+    position: fixed;
+    top: calc(#{$height-header-l} + 50px);
+    left: 50%;
+    max-width: 70%;
     background-color: lighten($bgc, 35%);
     border-radius: $br-rad-m;
     padding: 1em 1.5em;
+    z-index: 50;
+    transform: translateX(-50%);
+
+    &--close {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        padding: .3em .8em;
+        font-size: clamp(12px, 1.111vw, 20px);
+        background-color: lighten($bgc, 35%);
+        color: darken($bgc, 15%);
+        border-radius: $br-rad-m;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 20px darken($bgc, 15%);
+        cursor: pointer;
+        transition: border $anim-dration-m ease-in-out;
+        &:hover {
+            border: 1px solid darken($bgc, 15%);
+        }
+    }
 
     &--message {
         color: darken($bgc, 15%);
+        text-align: center;
     }
 }
 

@@ -3,9 +3,14 @@ $primary-color: #263973;
 $secondary-color: #F5FBFF;
 $third-color: #17BF71;
 $black-color: #131414;
-// $white-color: #fbfcfd;
+$error-color: #c70f14;
 
 $shadow-color: rgba(38, 57, 115, .35);
+
+
+// header
+$height-header-l: 147px;
+$height-header-m: 127px;
 
 
 // margin
@@ -27,4 +32,8 @@ $br-rad-m: 20px;
 
 // gradient color
 $color-gradient-primary: linear-gradient(45deg, $primary-color 0%, $third-color 100%);
-$color-gradient-leave : linear-gradient(45deg, rgba(255,0,0,1) 0%, $primary-color 100%);
+$color-gradient-leave : linear-gradient(45deg, $error-color 0%, $primary-color 100%);
+
+
+// duration animation
+$anim-dration-m: .3s

@@ -1,14 +1,21 @@
 import express from "express";
-import router from "./routes/index";
 import bodyParser from "body-parser";
+import path from "path";
+
+import routerAccount from "./routes/user";
+import routerWatches from "./routes/watches";
 
 const app = express();
 const hostname = "localhost"
 const port = 8000;
 
 app.use(bodyParser.json());
-app.use(router);
+
+app.use("/uploads/images", express.static(path.join(__dirname, "uploads/images")));
+
+app.use("/api", routerAccount);
+app.use("/api/watch", routerWatches);
 
 app.listen(port, hostname, () => {
-    console.log(`Example app listening at htt://${hostname}:${port}`);
+    console.log(`App listening at htt://${hostname}:${port}`);
 })

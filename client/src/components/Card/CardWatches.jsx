@@ -4,7 +4,7 @@ export default function CardWatches(props) {
   return (
     <>
         <div className="qa-CardWatch__image">
-            <img src={watchData.image.src} alt={watchData.image.alt} className="qa-CardWatch__image--img" />
+            <img src={watchData.watchImage} alt={`${watchData.mark} - ${watchData.model}`} className="qa-CardWatch__image--img" />
         </div>
 
         <div className="qa-CardWatch__body">

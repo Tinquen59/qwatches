@@ -43,6 +43,56 @@
     }
 }
 
+.qa-ListMyWatches {
+    &__container {
+        margin-top: $m-m;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        background-color: $primary-color;
+        color: $secondary-color;
+        border-radius: $br-rad-m;
+        box-shadow: 0 3px 6px $shadow-color;
+        padding: 1em 1.6em;
+
+        &--display {
+            cursor: pointer;
+            transition: transform $anim-dration-m ease-in-out;
+            &:hover {
+                transform: rotate(1turn);
+            }
+        }
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        margin-top: $m-xs;
+        background-color: $primary-color;
+        border-radius: $br-rad-m;
+
+        &--image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-top-left-radius: $br-rad-m;
+            border-bottom-left-radius: $br-rad-m;
+        }
+
+        &--btn {
+            margin-left: auto;
+            margin-right: 2em;
+        }
+    }
+
+    &__content {
+        margin-left: 2em;
+        color: $secondary-color;
+    }
+}
+
 
 @media screen and (max-width: 700px) {
     .qa-Account__container {
